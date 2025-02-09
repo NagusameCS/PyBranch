@@ -1,48 +1,35 @@
-# PyBranch SMTP Client
+```ascii
+ ____       ____                      _     
+|  _ \ _   | __ ) _ __ __ _ _ __   ___| |__  
+| |_) | | | |  _ \| '__/ _` | '_ \ / __| '_ \ 
+|  __/| |_| | |_) | | | (_| | | | | (__| | | |
+|_|    \__, |____/|_|  \__,_|_| |_|\___|_| |_|
+       |___/                                   
+```
 
-A secure, modern SMTP email client built with Python, featuring a dark olive-themed UI and robust security features.
+# PyBranch - Modern SMTP Email Client
 
-## Overview
+A secure, feature-rich email client with dark olive theming and local-first security.
 
-PyBranch is a desktop email client that prioritizes security and user experience. The name symbolizes "extending the olive branch" - making email communication secure and accessible.
+## Core Features
+
+[+] Modern dark olive UI theme
+[+] Local encrypted credential storage
+[+] Drag & drop attachments
+[+] Rich text composition
+[+] IMAP inbox support
+[+] Built-in email templates
+[+] Multi-account management
+[+] Custom SMTP server support
 
 ## Security Features
 
-- Local Credential Storage: Credentials are encrypted using Fernet (symmetric encryption)
-- Zero Remote Storage: All data is stored locally, never transmitted to external servers
-- Secure Password Handling: Passwords are never stored in plaintext
-- App-Specific Passwords: Built-in support for Gmail and Yahoo app-specific passwords
-- TLS Support: All SMTP connections use TLS encryption
-
-### Technical Security Details
-
-- Encryption: Uses Fernet (based on AES-128-CBC)
-- Key Storage: 
-  - Generated on first run
-  - Stored in `secret.key`
-  - Uses OS-level file permissions
-- Credential Storage:
-  - Encrypted using Fernet
-  - Stored in `credentials.enc`
-  - Individual fields encrypted separately
-
-## Features
-
-- Modern, dark-mode UI with olive theme
-- Pre-configured email providers
-- Custom SMTP server support
-- Automatic credential management
-- Tooltips for helpful information
-- Progress indicators and loading screens
-
-## Requirements
-
-```
-Python 3.8+
-cryptography>=41.0.0
-pillow>=10.0.0
-tkinter (usually included with Python)
-```
+[*] Fernet symmetric encryption
+[*] Zero cloud storage
+[*] TLS/SSL support
+[*] App-specific password support
+[*] Local-only credential storage
+[*] Secure memory handling
 
 ## Installation
 
@@ -62,30 +49,32 @@ pip install -r requirements.txt
 python main.py
 ```
 
+## System Requirements
+
+- Python 3.8+
+- 512MB RAM minimum
+- 100MB disk space
+- macOS/Linux/Windows
+
+## Dependencies
+
+```text
+tkinter>=8.6
+cryptography>=41.0.0
+pillow>=10.0.0
+tkinterdnd2>=0.3.0
+```
+
 ## Configuration
 
-### Supported Email Providers
+### Supported Providers
 
-- Gmail
-  - Requires App Password
-  - SMTP: smtp.gmail.com:587
-  - [Get App Password](https://support.google.com/accounts/answer/185833)
-
-- Outlook/Hotmail
-  - Uses regular password
-  - SMTP: smtp.office365.com:587
-
-- Yahoo Mail
-  - Requires App Password
-  - SMTP: smtp.mail.yahoo.com:587
-  - [Get App Password](https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html)
-
-### Custom SMTP Servers
-
-You can configure any SMTP server by providing:
-- Server address
-- Port number
-- Authentication credentials
+```
+[Gmail]     smtp.gmail.com:587    (App password required)
+[Outlook]   smtp.office365.com:587
+[Yahoo]     smtp.mail.yahoo.com:587 (App password required)
+[Custom]    User-defined SMTP
+```
 
 ## Security Best Practices
 
@@ -207,25 +196,26 @@ pytest tests/
 pylint *.py
 ```
 
-## Technical Architecture
+## UI Components
 
 ```
-PyBranch/
-├── main.py              # Main application & UI
-├── credentials_manager.py# Secure credential handling
-├── smtp_presets.py      # Provider configurations
-├── styles.py            # UI theming and styling
-├── splash_screen.py     # Loading screen
-├── requirements.txt     # Dependencies
-└── README.md           # Documentation
+Window
+|-- Login Frame
+|   |-- Provider Selection
+|   |-- Server Config
+|   `-- Credentials
+|
+|-- Compose Frame  
+|   |-- Recipients
+|   |-- Subject
+|   |-- Editor
+|   `-- Attachments
+|
+`-- Inbox Frame
+    |-- Message List
+    |-- Preview
+    `-- Actions
 ```
-
-## Code Structure
-
-- UI Layer: Tkinter-based interface with custom styling
-- Security Layer: Fernet encryption for credentials
-- Network Layer: SMTP handling with TLS
-- Configuration Layer: Preset providers and custom settings
 
 ## Contributing
 
@@ -272,3 +262,21 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 - Cryptography.io team
 - Python-tkinter community
 - Open-source contributors
+
+## ASCII Art Guide
+
+```
+[+] Feature
+[-] Removed
+[*] Security
+[!] Warning
+[?] Help
+```
+
+## Contact
+
+```ascii
+ __________________
+< NagusameCS on GitHub >
+ ------------------
+```

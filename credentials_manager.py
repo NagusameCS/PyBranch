@@ -70,3 +70,38 @@ class CredentialsManager:
                 return data.get(service, {}).get(key)
             except:
                 return None
+
+    def delete_credential(self, service, key):
+        """Delete a stored credential"""
+        try:
+            data = {}
+            if os.path.exists(self.creds_file):
+                with open(self.creds_file, "rb") as f:
+                    encrypted_data = f.read()
+                    decrypted_data = self.fernet.decrypt(encrypted_data)
+                    data = json.loads(decrypted_data)
+            
+            if service in data and key in data[service]:
+                del data[service][key]
+                if not data[service]:  # Remove service if empty
+                    del data[service]
+                    
+                # Save updated data
+                encrypted_data = self.fernet.encrypt(json.dumps(data).encode())
+                with open(self.creds_file, "wb") as f:
+                    f.write(encrypted_data)
+            return True
+        except Exception as e:
+            print(f"Error deleting credential: {e}")
+            return False
+
+    def clear_all_credentials(self, service):
+        """Clear all credentials for a service"""
+        try:
+            keys = ["email", "password", "server", "port"]
+            for key in keys:
+                self.delete_credential(service, key)
+            return True
+        except Exception as e:
+            print(f"Error clearing credentials: {e}")
+            return False
