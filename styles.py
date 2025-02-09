@@ -17,21 +17,19 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 
 COLORS = {
-    'primary': '#98B475',          # olive green
-    'primary_hover': '#AAC788',
-    'primary_glow': '#98B47533',   # olive glow
-    'secondary': '#2C3639',        # dark olive gray
-    'background': '#1A1D1A',       # deep olive black
-    'surface': '#22271F',          # olive black
-    'border': '#3D4B35',          # olive border
-    'text': '#E8EDE1',            # olive white
-    'text_secondary': '#98B475',   # olive accent
-    'text_glow': '#98B47522',     # text glow
-    'warning': '#C7B07B',         # olive gold
-    'success': '#739E73',         # olive success
-    'danger': '#B47575',          # olive red
-    'focus': '#98B475',           # olive focus
-    'bloom': '#98B47515'          # subtle bloom
+    'background': '#1A1F15',    # Very dark olive
+    'surface': '#2A2F24',       # Slightly lighter dark olive
+    'primary': '#A4B594',       # Pastel olive green
+    'primary_hover': '#B8C7A9', # Light pastel olive
+    'secondary': '#232920',     # Dark muted olive
+    'text': '#E8EDE1',         # Soft olive white
+    'text_secondary': '#C5CCBC', # Muted pastel olive
+    'warning': '#D4C5A3',      # Pastel warning
+    'success': '#A9BF9F',      # Pastel success
+    'error': '#C7A9A9',        # Pastel error
+    'accent': '#D2DBCA',       # Light pastel olive accent
+    'bloom': '#A4B59433',      # Semi-transparent pastel olive
+    'primary_glow': '#A4B59422' # Very transparent pastel olive
 }
 
 INFO_ICON = "ⓘ"  # Circle I character
@@ -43,12 +41,14 @@ TOOLTIPS = {
     'port': "The port number used for SMTP communication (usually 587 for TLS).",
     'quick_connect': "Select a pre-configured email provider for automatic setup.",
     'email': "Your full email address (e.g., user@example.com)",
-    'password': "For Google and Yahoo, use an App Password. For Outlook, use your regular password."
+    'password': "For Google and Yahoo, use an App Password. For Outlook, use your regular password.",
+    'contact_name': 'Enter the contact\'s name or nickname',
+    'contact_email': 'Enter the contact\'s email address',
 }
 
 TOOLTIP_STYLE = {
-    'background': '#3D4B35',  # darker olive for contrast
-    'foreground': '#E8EDE1',  # bright text
+    'background': '#3D4435',    # Darker olive for tooltip
+    'foreground': '#E8EDE1',    # Soft olive-white text
     'font': ('Helvetica Neue', 11),
     'padding': 8,
     'borderwidth': 1,
@@ -98,17 +98,65 @@ STYLES = {
         'font': FONTS['normal'],
         'background': COLORS['secondary'],
         'foreground': COLORS['text'],
-        'insertbackground': COLORS['text']  # cursor color
+        'insertbackground': COLORS['text'],  # cursor color
+        'selectbackground': COLORS['primary'],  # Selection color
+        'selectforeground': COLORS['text']      # Selected text color
     },
     'button': {
         'relief': 'flat',
         'borderwidth': 0,
         'font': FONTS['normal'],
-        'background': COLORS['surface'],
-        'foreground': COLORS['text']
+        'background': COLORS['primary'],
+        'foreground': COLORS['text'],
+        'padding': (PADDING['medium'], PADDING['small']),
+        'focuscolor': COLORS['primary_hover']   # Focus highlight color
+    },
+    'button_hover': {
+        'background': COLORS['primary_hover'],
+        'relief': 'solid',
+        'borderwidth': 1,
+        'bordercolor': COLORS['accent'],
+    },
+    'listbox': {
+        'background': COLORS['secondary'],
+        'foreground': COLORS['text'],
+        'selectbackground': COLORS['primary'],
+        'selectforeground': COLORS['text']
     },
     'glow': {
         'shadowcolor': COLORS['primary_glow'],
         'shadowthickness': 2
+    },
+    'bloom_frame': {
+        'background': COLORS['bloom'],
+        'relief': 'flat',
+        'borderwidth': 0,
+        'padding': PADDING['small'],
+    },
+    'syntax_highlighting': {
+        'keyword': '#CBD5BA',     # Light pastel olive for keywords
+        'link': '#D8E1CB',        # Very light pastel olive for links
+        'image': '#B8C7A9',       # Medium pastel olive for images
+        'attachment': '#D4C5A3'    # Warm pastel olive for attachments
+    }
+}
+
+# Configure button styles with new colors
+BUTTON_STYLES = {
+    'normal': {
+        'background': COLORS['primary'],
+        'foreground': COLORS['background'],
+        'activebackground': COLORS['primary_hover'],
+        'activeforeground': COLORS['background'],
+        'relief': 'flat',
+        'borderwidth': 0
+    },
+    'secondary': {
+        'background': COLORS['surface'],
+        'foreground': COLORS['text'],
+        'activebackground': COLORS['secondary'],
+        'activeforeground': COLORS['primary'],
+        'relief': 'flat',
+        'borderwidth': 0
     }
 }

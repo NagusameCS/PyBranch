@@ -1,0 +1,8 @@
+{
+    "recipients": [
+        "email1@example.com",
+        "email2@example.com",
+        "{cc}{email3@example.com}",
+        "{bcc}{email4@example.com}"
+    ]
+}

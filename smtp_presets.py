@@ -21,7 +21,9 @@ SMTP_SERVERS = {
         "display_name": "Gmail",
         "icon": "📧",
         "server": "smtp.gmail.com",
-        "port": "587",
+        "imap_server": "imap.gmail.com",
+        "port": 587,
+        "imap_port": 993,
         "requires_app_password": True,
         "help_url": "https://support.google.com/accounts/answer/185833"
     },
@@ -29,7 +31,9 @@ SMTP_SERVERS = {
         "display_name": "Outlook",
         "icon": "📨",
         "server": "smtp.office365.com",
-        "port": "587",
+        "imap_server": "outlook.office365.com",
+        "port": 587,
+        "imap_port": 993,
         "requires_app_password": False,
         "help_url": ""
     },
@@ -37,7 +41,9 @@ SMTP_SERVERS = {
         "display_name": "Yahoo",
         "icon": "📩",
         "server": "smtp.mail.yahoo.com",
-        "port": "587",
+        "imap_server": "imap.mail.yahoo.com",
+        "port": 587,
+        "imap_port": 993,
         "requires_app_password": True,
         "help_url": "https://help.yahoo.com/kb/generate-third-party-passwords-sln15241.html"
     }
